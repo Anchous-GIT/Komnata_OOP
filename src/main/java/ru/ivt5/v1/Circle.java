@@ -50,4 +50,55 @@ public class Circle {
     }
 
     // 9.
+    public void moveTo(int x, int y){
+        this.center.setX(x);
+        this.center.setY(y);
+    }
+
+    // 10.
+    public void moveTo(Point point){
+        this.center = point;
+    }
+
+    // 11.
+    public void moveRel(int dx, int dy){
+        this.center.setX(this.center.getX()+dx);
+        this.center.setY(this.center.getY()+dy);
+    }
+
+    // 12. Увеличивает радиус Circle в n раз
+    public void resize(double ratio){
+        this.radius = (int)(this.radius * ratio);
+    }
+
+    // 13. Возвращает площадь круга.
+    public double getArea(){
+        return  Math.PI * radius * radius;
+    }
+
+    // 14. Возвращает длину окружности
+    public double getPerimeter(){
+        return Math.PI * radius * 2;
+    }
+
+    // 15. лежит ли точка (x, y) внутри Circle.
+    public boolean isInside(int x, int y) {
+        // Расстояние между точкой (x, y) и центром круга
+        int dx = x - this.center.getX();  // Разница по оси X
+        int dy = y - this.center.getY();  // Разница по оси Y
+
+        // Если сумма квадратов этих разностей меньше или равна квадрату радиуса,
+        // то точка лежит внутри круга (или на его окружности)
+        return dx * dx + dy * dy <= radius * radius;
+    }
+
+    // 16.
+    public boolean isInside(Point point) {
+        int dx = point.getX() - this.center.getX();
+        int dy = point.getY() - this.center.getY();
+        return dx * dx + dy * dy <= radius * radius;
+    }
+
+
+
 }
