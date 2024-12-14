@@ -1,27 +1,22 @@
 package ru.ivt5.v1;
 
-public class ColoredRectangle {
+public class ColoredRectangle extends Rectangle {
 
-    private Point leftTop;
-    private Point rightBottom;
     private int color;
 
 
     public ColoredRectangle(Point leftTop, Point rightBottom, int color){
-        this.leftTop = leftTop;
-        this.rightBottom = rightBottom;
+        super(leftTop, rightBottom);
         this.color = color;
     }
 
     public ColoredRectangle(int xLeft, int yTop, int xRight, int yBottom, int color){
-        this.leftTop = new Point(xLeft,yTop);
-        this.rightBottom = new Point(xRight,yBottom);
+        super(xLeft,yTop,xRight,yBottom);
         this.color = color;
     }
 
     public ColoredRectangle(int length, int width, int color){
-        this.leftTop = new Point(0, 0);
-        this.rightBottom = new Point(length, -width);
+        super(length,width);
         this.color = color;
     }
 
