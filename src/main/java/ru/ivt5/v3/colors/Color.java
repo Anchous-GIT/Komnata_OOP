@@ -8,7 +8,7 @@ public enum Color {
 
     //fromString - статический метод, который принимает строку (colorString) и возвращает соответствующий объект Color.
 
-    public static Color fromString(String colorString) throws ColorException {
+    public static Color colorFromString(String colorString) throws ColorException {
         if (colorString == null) {
             throw new ColorException(ColorErrorCode.NULL_COLOR);
         }

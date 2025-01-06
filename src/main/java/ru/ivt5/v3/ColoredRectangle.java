@@ -1,6 +1,7 @@
 package ru.ivt5.v3;
 
 import ru.ivt5.v3.colors.Color;
+import ru.ivt5.v3.colors.ColorException;
 import ru.ivt5.v3.iface.Colored;
 
 import java.awt.*;
@@ -43,6 +44,9 @@ public class ColoredRectangle extends Rectangle implements Colored {
         this.color = color;
     }
 
+    public void setColor(String colorString) throws ColorException {
+        this.color = Color.colorFromString(colorString);
+    }
 
 }
 

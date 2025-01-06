@@ -1,6 +1,7 @@
 package ru.ivt5.v3;
 
 import ru.ivt5.v3.colors.Color;
+import ru.ivt5.v3.colors.ColorException;
 import ru.ivt5.v3.iface.Colored;
 
 public class ColoredCircle extends Circle implements Colored {
@@ -49,6 +50,10 @@ public class ColoredCircle extends Circle implements Colored {
     // 7. Метод установки цвета
     public void setColor(Color color) {
         this.color = color;
+    }
+    
+    public void setColor(String colorString) throws ColorException {
+        this.color = Color.colorFromString(colorString);
     }
 
 }
