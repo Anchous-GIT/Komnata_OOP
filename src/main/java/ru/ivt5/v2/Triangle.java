@@ -4,6 +4,8 @@ import ru.ivt5.v2.iface.HasArea;
 import ru.ivt5.v2.iface.Movable;
 import ru.ivt5.v2.iface.Resizable;
 
+import java.util.Objects;
+
 public class Triangle extends Figure implements Movable, HasArea, Resizable {
 
     //три вершины треугольника
@@ -86,15 +88,23 @@ public class Triangle extends Figure implements Movable, HasArea, Resizable {
         if (ratio <= 0) {
             throw new IllegalArgumentException("Коэффициент должен быть положительным и больше нуля");
         }
-
         // Изменяем координаты каждой вершины, умножая на коэффициент
         vertexA = new Point((int)(vertexA.getX() * ratio), (int)(vertexA.getY() * ratio));
         vertexB = new Point((int)(vertexB.getX() * ratio), (int)(vertexB.getY() * ratio));
         vertexC = new Point((int)(vertexC.getX() * ratio), (int)(vertexC.getY() * ratio));
     }
 
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return vertexA.equals(triangle.vertexA) &&
+                vertexB.equals(triangle.vertexB) &&
+                vertexC.equals(triangle.vertexC);
+    }
 
-
-
+    public int hashCode() {
+        return Objects.hash(vertexA, vertexB, vertexC);
+    }
 
 }
